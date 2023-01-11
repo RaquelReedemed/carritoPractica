@@ -6,7 +6,7 @@
 
 
 
-const data = [
+const dataProductos = [
     {
         id: 1,
         nombre: 'Caja',
@@ -50,6 +50,14 @@ const data = [
         imagen: 'https://res.cloudinary.com/da5fzpyjp/image/upload/v1672270915/E-COMMERS%20NAVIDAD/snoopy_g6mceq.webp'
     },
 ];
+
+let data = []
+
+if (localStorage.getItem('data')) {
+    data = JSON.parse(localStorage.getItem('data'));
+} else {
+    data = dataProductos;
+}
 
 class Carrito {
     constructor(id, nombre, cantidad, precio, imagen) {
@@ -129,11 +137,8 @@ function createNewProduct() {
 
   }
 
-  
-  
   console.log(data)
   dibujarProductos(data, contenedor)
-
   
 }
 
@@ -163,6 +168,33 @@ const dibujarProductos = (data, contenedor) => {
           `
         });
         contenedor.innerHTML = acumulador;
+        const dibujarProductos = (data, contenedor) => {
+            let acumulador = '';
+            data.forEach(element => {
+                acumulador += `
+                
+                <div class=  "card mx-auto text-bg-secondary"  style="width: 15rem;"  >
+               
+                <div class="cont-img">
+                
+                    <img class ="img-main" src="${element.imagen}" class="card-img-top" alt="${element.nombre}.">
+                </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${element.nombre}</h5>
+                        <p class="card-text">Cantidad: ${element.cantidad}</p>
+                        <p class="card-text">Precio: $${element.precio}</p>
+                        <a href="#" onclick="agregarAlCarrito(${element.id})" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+                
+                  `
+                });
+                contenedor.innerHTML = acumulador;    
+               
+        };
+        
+        localStorage.setItem('data',JSON.stringify(data))
+        
 };
 
 
@@ -195,7 +227,7 @@ const agregarAlCarrito = (id) => {
     }
       
     console.log(carrito)
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem('carrito', JSON.stringify(carrito)); //localStorage.setItem() metodo para almacenar en el navegador como una cadeja JSON. 'JSON.stringify(carrito) se utiliza para convertir el objeto JS en JSON
     listarCarrito(carrito)
     actualizarTotal()
     
@@ -313,11 +345,26 @@ function actualizarNumerito() {
 
 //recuperando del storage
 
-if (localStorage.getItem('carrito')) {
+
+if (localStorage.getItem('carrito')) {  //comprueba si hay una clave llamada 'carrito' en el local
+    //json.parse(), transforma de cadena a objetoJS y dicho objeto se asignara a 'carrito'
     carrito = JSON.parse(localStorage.getItem('carrito'));
     listarCarrito(carrito)
     actualizarTotal()
-
 }
+
+if (localStorage.getItem ('data')) {
+   const consultasViejas = JSON.parse(localStorage.getItem('data'));
+
+   consultasViejas.forEach( (el) => {
+        (el.id, el.nombre, el.cantidad, el.imagen, el.precio);
+        console.log(consultasViejas);
+    })
+    dibujarProductos(consultasViejas,contenedor)
+}
+
+
+
+
 
 
