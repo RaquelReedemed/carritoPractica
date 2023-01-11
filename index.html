@@ -69,7 +69,7 @@
                  <div class="cont-total-pagar">
                     
                   <div id="total" class="carrito-acciones-total" ></div>
-                  <button type="button" class="btn btn-primary">Ir a Pagar</button>
+                  <button  id="procesar-compra" type="button" class="btn btn-primary" target="blank" >Continuar</button>
                 </div>
                 </div>
               </div>
@@ -104,9 +104,40 @@
 
     <!--Contenedor para productos-->
     <div id="contenedor" class="d-flex flex-wrap gap-2 mt-3 mb-3"></div>
+
+    
+
+    
   </main>
 
+  <div  class="modal" tabindex="-1" class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <input type="text" id="new-product" placeholder="Product">
+          <input type="text" id="new-price" placeholder="Price">
+          <input type="file" name="" id="new-image">
+        </div>
+        <div class="modal-footer">
+          <button id="btn-new-create">Create new Object</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div>
+    
+    <button id="btn-create" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">Create a new Product</button>
+    
+  </div>
+
+ 
     
 
     <!--link bootstrap-->
@@ -114,7 +145,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <!--link js-->
     <script src="./Script/ejMercadoPago.js"></script> 
-<!--sweetAlert-->
+<!--sweetAgit statuslert-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </body>

@@ -59,6 +59,28 @@ main {
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
+.carritoVacio {
+    font-weight: 900;
+    font-size: italic;
+    margin-top: 1rem;
+}
+
+
+.modal {
+    width: 20rem;
+    height: 15rem;  
+    border: groove black 2px;
+    background-color: #98a2a8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;  
+    z-index: 1;
+    display: none;
+  }
+
+
 
 
 

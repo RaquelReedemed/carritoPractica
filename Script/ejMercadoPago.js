@@ -78,6 +78,67 @@ const botonVaciar = document.getElementById('carrito-acciones-vaciar');
 const numerito = document.getElementById('numerito');
 
 
+/* -------------------------------------------------------------------------- */
+/*                                Agregar productos                           */
+/* -------------------------------------------------------------------------- */
+
+let imgSelected = " ";
+let idProduct = data.length; //
+console.log(idProduct)
+
+const newProduct = document.getElementById('new-product');
+const newPrice = document.getElementById('new-price');
+const newImage = document.getElementById('new-image');
+const btnNewProduct = document.getElementById('btn-new-create');
+
+newImage.addEventListener('change', importImg);
+btnNewProduct.addEventListener('click', createNewProduct);
+
+function importImg(event) {
+  const currentImg = event.target.files[0];
+  const objectURL = URL.createObjectURL(currentImg);
+  console.log(currentImg)
+  console.log(objectURL)
+  imgSelected = objectURL;
+}
+
+function createNewProduct() {
+  idProduct++;
+  const titleProduct = newProduct.value;
+  console.log(titleProduct)
+  const priceProduct = newPrice.value;
+  console.log(priceProduct)
+  const id = idProduct;
+
+  const newFruit = {id:id, nombre: titleProduct, precio: priceProduct, imagen: imgSelected};
+
+  if (id === id) {
+
+    if (data.some(el => el.id === id)) {
+        const target = data.find(el => el.id === id);
+        console.log(target)
+        data = data.filter(el => el.id !== id);
+        console.log(data)
+    }
+
+    const nuevoNewFruit = {id:id, nombre: titleProduct, precio: priceProduct, imagen: imgSelected};
+    data.push(nuevoNewFruit)
+  } else {
+    data.push(newFruit);
+    console.log(newFruit)
+
+  }
+
+  
+  
+  console.log(data)
+  dibujarProductos(data, contenedor)
+
+  
+}
+
+
+
 //2//dibujar productos en html, recibe como parametros a evaluar array productos y contenedor
     //img-fluid w-100
 const dibujarProductos = (data, contenedor) => {
@@ -258,6 +319,5 @@ if (localStorage.getItem('carrito')) {
     actualizarTotal()
 
 }
-
 
 
