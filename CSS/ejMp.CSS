@@ -3,6 +3,15 @@
     border-color: brown;
     border-width: 1px;
 }
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 2000; /*esta por encima de toda la pag*/
+}
 .img-main{
     
     height: 8rem;
@@ -46,9 +55,12 @@ justify-content: space-around;
 }
 
 .boton-carrito {
-    background-color: white;
+    background-color: #ffe6e8;
     margin-left: 10px;
     border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    height: 35px;
 }
 
 .navbar{
@@ -76,13 +88,128 @@ main {
     align-items: center;
     justify-content: space-around;
     position: absolute;  
-    z-index: 1;
+    z-index: 20;
     display: none;
+  }
+
+  .buscador {
+    justify-content: space-evenly;
+    margin-top: 5px;
+  }
+
+  .inputBuscar{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
   }
 
 
 
+  #btn-create {
+    background-color: #ffe6e8;
+    color: #292828;
+    border: none;
+  }
 
+  /*barra buscadora dinamica*/
+
+  #ctn-icon-search{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+#ctn-icon-search{
+    font-size: 18px;
+    color: grey;
+    cursor: pointer;
+    transition: all 300ms ;
+}
+
+#ctn-icon-search i:hover {
+    color: #3f3fee;
+}
+
+#ctn-bars-search{
+    position: fixed; /*para que se ponga por encima de todos los elementos*/
+    top: -10px; /*ocultar barra*/
+    width: 100%;
+    padding: 20px;
+    z-index: 9; /*se cocola sobre los elementos de la pagina*/
+    transition: all 600ms;
+}
+
+#ctn-bars-search input {
+   display: block; /*para que se centre*/
+   width: 1000px;
+   margin: auto;  /*para centrar*/
+   padding: 10px;
+   font-size: 18px;
+   outline: 0;    /*elimina linea cuando se hace foco*/
+   
+   
+}
+
+#box-search{
+    position: fixed;
+    top: 151px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    z-index: 8;
+    background-color: whitesmoke;
+    padding-left: 5px;
+    display: none; /*solo se mostrara con la funcion JS*/
+   
+}
+
+
+#box-search li a {
+    display: block;
+    color: #cad2d7;
+    padding: 12px 20px;
+    
+}
+
+#box-search li a:hover {
+    background-color: #e6e7e7;
+}
+
+#box-search li{
+    list-style-type: none;
+    
+}
+/*icono lupita*/
+.fa-search{
+    color: grey;
+    margin-right: 10px;
+}
+
+#cover-ctn-search{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background-color: #95969769;
+    z-index: 7;
+    display: none; /*solo se mostrara con la funcion JS*/
+}
+
+
+
+@media screen and (max-width: 1220px){
+    #ctn-bars-search,
+    #ctn-bars-search input,
+    #box-search {
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+    .modal-dialog {
+        width: 300px;
+    }
+}
 
 
 

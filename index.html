@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/ejMp.CSS">
+    <!--fontaweson-->
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/ejMp.CSS"> 
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +15,7 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar w/ text</a>
+      <a class="navbar-brand" href="#">Productos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,6 +32,9 @@
           </li>
         </ul>
         <span class="navbar-text">
+
+          <!--inoco para buscar-->
+
           
           <!--carrito-->
 
@@ -58,9 +63,6 @@
                 </table>
                 </div>
     
-               
-    
-            
                 <div class="modal-footer d-flex justify-content-between align-items-center ">
                   <div class="carrito-acciones" >
                     <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar btn btn-secondary">Vaciar carrito</button>
@@ -75,20 +77,70 @@
               </div>
             </div>
           </div>
-    
-          <div>
-    
-          <button class="boton-carrito" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">🛒<span class="numerito" id="numerito"></span></button>
-          
-        </div>
-
-
-        </span>
       </div>
     </div>
-  </nav>
 
+    <div id="ctn-icon-search">
+      <i class="fas fa-search" id="icon-search"></i>
+    </div>
+
+    <!--Logo Carrito-->
+    <div>
+      <button class="boton-carrito" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">🛒<span class="numerito" id="numerito"></span></button> 
+    </div>
+
+ <!--modal para agregar productos-->
+
+ <div  class="modal" tabindex="-1" class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <input type="text" id="new-product" placeholder="Product">
+        <input type="text" id="new-price" placeholder="Price">
+        <input type="file" name="" id="new-image">
+      </div>
+      <div class="modal-footer">
+        <button id="btn-new-create">Create new Object</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button id="btn-create" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">Add</button> 
+</div>
+
+
+
+  </nav>
 </header>
+
+<!--barra buscadora dinamica-->
+
+<div id="ctn-bars-search">
+  <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+</div>
+
+<ul id="box-search">
+  <li><a href="https://www.youtube.com/watch?v=s4dzDhnvznE&t=574s"><i class="fas fa-search"></i>HTML</a></li>
+  <li><a href="#"><i class="fas fa-search"></i>COCINA</a></li>
+  <li><a href="#"><i class="fas fa-search"></i>MESA</a></li>
+  <li><a href="#"><i class="fas fa-search"></i>DECO</a></li>
+  <li><a href="#"><i class="fas fa-search"></i>TEXTIL</a></li>
+  <li><a href="#"><i class="fas fa-search"></i>REGALOS</a></li>
+  <li><a href="#"><i class="fas fa-search"></i>NOVEDADES</a></li>
+  <li><a href="#l"><i class="fas fa-search"></i>Como crear</a></li>
+</ul>
+
+<div id="cover-ctn-search"></div> <!--fondo negro del buscador-->
+
+
 
 <main>
 
@@ -97,48 +149,69 @@
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./img/img2.jpeg" class="d-block w-100 " alt="...">
+      <img src="./img/mesadacocina2tiny.jpg" class="d-block w-100 " alt="...">
     </div>    
 </div>
 </div>
 
+ <!--barra buscadora
+ <form class="d-flex  buscador" role="search" >
+  <input id="input-buscar" class="inputBuscar" type="search" placeholder="buscar">
+</form>-->
+
+
+
     <!--Contenedor para productos-->
     <div id="contenedor" class="d-flex flex-wrap gap-2 mt-3 mb-3"></div>
-
-    
-
-    
   </main>
 
-  <div  class="modal" tabindex="-1" class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          
-          <input type="text" id="new-product" placeholder="Product">
-          <input type="text" id="new-price" placeholder="Price">
-          <input type="file" name="" id="new-image">
-        </div>
-        <div class="modal-footer">
-          <button id="btn-new-create">Create new Object</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
+ <!--  <footer>
+    <div class="container-fluid pb-5">
+    <div class="row">
+    <div class="col-md-3 col-12">
+    <img src="#" style="width:180px" class="img-fluid">
     </div>
-  </div>
-
-  <div>
+    <div class="col-md-3 col-12">
+    <h3 class="nosotros-footer">NOSOTROS</h3>
+    <ul class="list-unstyled">
+    <li><a href="#">Quienes somos</a></li>
+    <li><a href="#">Sucursales</a></li>
+    </ul>
+    <h3>REDES SOCIALES</h3>
+    <a href="#" target="_blank"><img src="#" width="25" class="redesFooter"></a>
+    <a href="#" target="_blank"><img src="#" width="25" class="redesFooter"></a>
+    <a href="#" target="_blank"><img src="#" width="25" class="redesFooter"></a>
+    <a href="#" target="_blank"><img src="#" width="25" class="redesFooter"></a>
+    </div>
+    <div class="col-md-3 col-12">
+    <h3>COMPRAS</h3>
+    <ul class="list-unstyled">
+    <li><a href="#">Ofertas</a></li>
+    <li><a href="#">Preguntas frecuentes</a></li>
+    <li><a href="#">Cambios y devoluciones</a></li>
+    <li><a href="#">Cancela tu compra</a></li>
+    <li><a href="#">Compra mayorista</a></li>
+    </ul>
+    </div>
+    <div class="col-md-3 logos_redes">
+    <h3>CONTACTO</h3>
+    <ul class="list-unstyled datos_contacto">
+    <li><img src="#" width="15" style="filter:invert(1)"> <a href="#" target="_blank">numero</a></li>
+    <li><img src="#" target="_blank">direccion</a></li>
+    </ul>
+    <h3>NEWSLETTER</h3>
     
-    <button id="btn-create" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">Create a new Product</button>
-    
-  </div>
-
+    <script type="text/javascript"> 
+                function ventanaSecundaria (URL){ 
+                window.open("#","ventana1","width=400,height=300,top=300,left=750,scrollbars=NO") 
+                } 
+                </script>
+    <input type="button" class="btn btn-warning" style="background:#fff;font-size:12px; border:none" value="Suscribirme" onclick="if (!window.__cfRLUnblockHandlers) return false; ventanaSecundaria (URL);">
+    </div>
+    </div>
+    </div>
+    </footer> -->
  
-    
 
     <!--link bootstrap-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">

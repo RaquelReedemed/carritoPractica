@@ -49,6 +49,48 @@ const dataProductos = [
         precio: 2500,
         imagen: 'https://res.cloudinary.com/da5fzpyjp/image/upload/v1672270915/E-COMMERS%20NAVIDAD/snoopy_g6mceq.webp'
     },
+    {
+        id: 1,
+        nombre: 'Caja',
+        cantidad: 10,
+        precio: 1500,
+        imagen: 'https://res.cloudinary.com/da5fzpyjp/image/upload/v1672265832/E-COMMERS%20NAVIDAD/caja_pifqdg.webp'
+    },
+    {
+        id: 2,
+        nombre: 'Trineo',
+        cantidad: 35,
+        precio: 3000,
+        imagen: 'https://res.cloudinary.com/da5fzpyjp/image/upload/v1672271116/E-COMMERS%20NAVIDAD/trineo_vczfjp.webp'
+    },  
+    {
+        id: 3,
+        nombre: 'Gemmi',
+        cantidad: 23,
+        precio: 7500,
+        imagen: 'https://res.cloudinary.com/da5fzpyjp/image/upload/v1672270784/E-COMMERS%20NAVIDAD/gemmy_oueo5q.webp'
+    },  
+    {
+        id: 4,
+        nombre: 'Caballo',
+        cantidad: 70,
+        precio: 6000,
+        imagen: 'https://m.media-amazon.com/images/I/61NPgHyya9L._AC_UL480_FMwebp_QL65_.jpg'
+    },  
+    {
+        id: 5,
+        nombre: 'Renos',
+        cantidad: 7,
+        precio: 3500,
+        imagen: 'https://res.cloudinary.com/da5fzpyjp/image/upload/v1672270994/E-COMMERS%20NAVIDAD/renos_yctnl1.webp'
+    },
+    {
+        id: 6,
+        nombre: 'Snoopy',
+        cantidad: 7,
+        precio: 2500,
+        imagen: 'https://res.cloudinary.com/da5fzpyjp/image/upload/v1672270915/E-COMMERS%20NAVIDAD/snoopy_g6mceq.webp'
+    },
 ];
 
 let data = []
@@ -234,18 +276,6 @@ const agregarAlCarrito = (id) => {
 }
 
 
-
-
-
-/* function sumar (a) {
-plus.addEventListener("click", ()=> {
-    a++;
-     a = (a<10) ? "0" + a:a;
-     num.innerText = a;
-    console.log("a")
-})
-} */
-
 const listarCarrito = (carrito) => {
     console.log('vacio')
     if(carrito.length === 0) {
@@ -277,7 +307,12 @@ const listarCarrito = (carrito) => {
 
     contenedorCarrito.innerHTML = acumulador;
     actualizarNumerito() 
+    
+     
+
 };
+
+
 
 
 const eliminarProducto = (productoid) => {
@@ -363,6 +398,92 @@ if (localStorage.getItem ('data')) {
     dibujarProductos(consultasViejas,contenedor)
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                                 Buscador interactivo                       */
+/* -------------------------------------------------------------------------- */
+
+iconSearch = document.getElementById('icon-search')
+bars_search = document.getElementById('ctn-bars-search');
+cover_ctn_search = document.getElementById('cover-ctn-search');
+inputSearch = document.getElementById('inputSearch');
+box_search =document.getElementById('box-search')
+
+  //funcion para mostrar el buscardor
+  document.getElementById("icon-search").addEventListener("click", mostrar_buscador);
+
+  function mostrar_buscador(){
+    bars_search.style.top = "80px";
+    cover_ctn_search.style.display = "block";
+    inputSearch.focus();
+
+    if (inputSearch.value === ""){
+        box_search.style.display = "none";
+    }
+
+}
+
+
+  /* iconSearch.addEventListener('click', () => {
+    bars_search.style.top = "80px";
+    cover_ctn_search.style.display = "block";
+    inputSearch.focus();  //para poder escribir en la barra
+
+    if (inputSearch.value === "") {
+        box_search.style.display = "none"
+    }
+  }) */
+
+ //funcion para ocultar el buscador
+
+ document.getElementById("cover-ctn-search").addEventListener("click", ocultar_buscador)
+
+ function ocultar_buscador() {
+    bars_search.style.top = "-10px";
+    cover_ctn_search.style.display = "none";
+    inputSearch.value = "";
+    box_search.style.display = "none";
+ }
+
+
+ 
+ /* cover_ctn_search.addEventListener('click', () => {
+   bars_search.style.top = "-10px"; //click en covertor se esconde el buscador
+   cover_ctn_search.style.display = "none"; //desaparece el covertor
+   inputSearch.value = "";
+   box_search.style.display = "none";
+ }) */
+
+
+
+ //creando filtrado de busqueda
+
+ inputSearch.addEventListener('keyup', () => {
+  //convertir el valor del input en mayuscula
+  filter = inputSearch.value.toUpperCase();
+  //li sera igual a los li que se obtiene del getelementbytagname
+  li = box_search.getElementsByTagName("li") //
+
+  //recorriendo elementos a filtrar mediante los "li"
+  for (i = 0; i < li.length; i++){ //i arranca en 0, si i es menor a la longitud del objeto li el bucle incrementara 1 e interara atraves de todos los elementos de li
+
+    a = li[i].getElementsByTagName("a")[0]; // se utiliza para acceder al primer elemento <a></a> dentro del li. Devuelte HTMLcollection de todos los a. [0], se utiliza para acceder al primer elemento de la coleccion
+    textValue = a.textContent
+
+    if(textValue.toUpperCase().indexOf(filter) > -1){ //si el valor ingresado en el buscador se encuentra en el texValue (li->a) el indexof devolvera un numero positivo
+
+        li[i].style.display = "";
+        box_search.style.display = "block";
+
+        if (inputSearch.value === ""){   //si el biscador no tiene texto no se abre el box
+            box_search.style.display = "none";
+        }
+
+    }else{  //sino hay conincidencias no mostrara nada el box
+        li[i].style.display = "none";
+    }
+}
+ });
 
 
 
