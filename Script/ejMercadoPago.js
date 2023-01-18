@@ -144,13 +144,21 @@ const btnNewProduct = document.getElementById('btn-new-create');
 newImage.addEventListener('change', importImg);
 btnNewProduct.addEventListener('click', createNewProduct);
 
-function importImg(event) {
+/* function importImg(event) {
   const currentImg = event.target.files[0];
   const objectURL = URL.createObjectURL(currentImg);
   console.log(currentImg)
   console.log(objectURL)
   imgSelected = objectURL;
-}
+} */
+
+function importImg(event) {
+    let fr = new FileReader(); // uso de la api filereader
+    fr.readAsDataURL(event.target.files[0])
+    fr.addEventListener('load',() => {
+        imgSelected = fr.result;
+        console.log(fr.result)
+    })}
 
 function createNewProduct() {
   idProduct++;
